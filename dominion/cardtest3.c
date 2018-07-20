@@ -36,9 +36,9 @@ void addBaron(int player, struct gameState* state)
 
 
 
-void testBaron()
+int testBaron(int choice)
 {
-    const int numTests = 2;
+   
 
     // init game data
     struct gameState state;
@@ -52,7 +52,7 @@ void testBaron()
 
     addBaron(0, &state);
 
-    int originalHandSize = state.handCount[0];
+    //int originalHandSize = state.handCount[0];
     int originalNumBaron = 0;
 
     for(int i = 0; i < state.handCount[0]; i++)
@@ -64,9 +64,15 @@ void testBaron()
         if(state.hand[0][handPos] == baron)
             break;
 
-    int bonus = 0;
-    cardEffect(baron, 0, 0, 0, &state, handPos, &bonus);
 
+    int oNumEstates = fullDeckCount(0, estate, &state);
+    int oCoins = state.coins;
+
+    printf("choice == %d:\n", choice);
+    int bonus = 0;
+    cardEffect(baron, choice, 0, 0, &state, handPos, &bonus);
+    int coinsGained = state.coins - oCoins;
+    endTurn(&state);
     int newNumBaron = 0;
     for(int i = 0; i < state.handCount[0]; i++)
         if(state.hand[0][i] == baron)
@@ -74,15 +80,32 @@ void testBaron()
 
     printf("Testing 1 fewer Baron");
     passCount += asserttrue(newNumBaron == originalNumBaron - 1);
-    printf("%d vs %d\n", newNumBaron, originalNumBaron);
+   // printf("%d vs %d\n", newNumBaron, originalNumBaron);
 
-    // overall results
-    printf("FINAL TEST RESULTS: %d / %d  ", passCount, numTests);
-    asserttrue(passCount == numTests);
+    printf("Testing Discard estate for 4 coin OR gain estate");
+    int newNumEstates = fullDeckCount(0, estate, &state);
+    
+    
+    int estatesGained = newNumEstates - oNumEstates;
+
+    passCount += asserttrue((estatesGained == 1) || (estatesGained == 0 && coinsGained == 4));
+    //printf("%d vs %d\n", estatesGained, coinsGained);
+
+    return passCount;
+
+
 }
 
 int main()
 {
-    testBaron();
+    int numTests = 4;
+
+    int passCount = testBaron(0);
+    passCount += testBaron(1);
+
+    // overall results
+    printf("FINAL TEST RESULTS: %d / %d  ", passCount, numTests);
+    asserttrue(passCount == numTests);
+
     return 0;
 }
