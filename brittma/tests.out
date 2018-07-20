@@ -1,0 +1,31 @@
+Result for running dominion.c unit tests: 
+
+unittest1.c (numHandCards):
+testing initializeGame -- -- TEST PASSED
+testing state.handcount[0] {5} == NumHandCards -- -- TEST PASSED
+testing state.handcount[1] {0} == NumHandCards -- -- TEST PASSED
+FINAL TEST RESULTS: 3 / 3  -- TEST PASSED
+File 'dominion.c'
+Lines executed:20.34% of 595
+Creating 'dominion.c.gcov'
+
+
+unittest2.c (fullDeckCount):
+testing uninitialized deck -- -- TEST PASSED
+testing initialized deck -- -- TEST PASSED
+testing card at start of deck -- -- TEST PASSED
+testing card in middle of deck -- -- TEST PASSED
+testing card at end of deck -- -- TEST PASSED
+testing card at start of hand -- -- TEST PASSED
+testing card in middle of hand -- -- TEST PASSED
+testing card at end of hand -- -- TEST PASSED
+testing card at start of  discard -- -- TEST PASSED
+testing card in middle of discard -- -- TEST PASSED
+testing card at end of  discard -- -- TEST PASSED
+testing card in deck and discard -- -- TEST PASSED
+testing card in deck, hand and discard -- -- TEST PASSED
+FINAL TEST RESULTS: 13 / 13  -- TEST PASSED
+File 'dominion.c'
+Lines executed:20.34% of 595
+Creating 'dominion.c.gcov'
+

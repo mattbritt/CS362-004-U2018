@@ -32,8 +32,6 @@ void testNumHandCards()
 {
     const int numTests = 3;
 
-    printf("\n\nTESTING numHandCards:\n\n");
-
     // init game data
     struct gameState state;
     int k[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse,
@@ -45,17 +43,17 @@ void testNumHandCards()
     int passCount = 0;
 
     // test that initializeGame was successful
-    printf("testing initializeGame \n");
+    printf("testing initializeGame -- ");
     passCount += asserttrue(result == 0);   
 
     // test that player 1 handCount is valid
-    printf("testing state.handcount[0] {%d} == NumHandCards \n", state.handCount[0]);
+    printf("testing state.handcount[0] {%d} == NumHandCards -- ", state.handCount[0]);
     passCount += asserttrue(state.handCount[0] == numHandCards(&state));
 
     // test player 2 handCount is valid
     state.whoseTurn = 1;
 
-    printf("testing state.handcount[1] {%d} == NumHandCards \n", state.handCount[1]);
+    printf("testing state.handcount[1] {%d} == NumHandCards -- ", state.handCount[1]);
     passCount += asserttrue(state.handCount[1] == numHandCards(&state));
     
     // overall results
@@ -68,7 +66,6 @@ void testNumHandCards()
 
 int main(int argc, char *argv[])
 {
-    //testContainsBSTree();
     testNumHandCards();
     return 0;
 }
