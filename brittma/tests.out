@@ -103,7 +103,16 @@ testing 1 great hall -- -- TEST PASSED
 testing 1  gardens -- -- *** TEST FAILED ***
 testing 1 curse & great hall -- -- TEST PASSED
 testing 1 curse, estate, duchy, province, great hall -- -- TEST PASSED
-FINAL TEST RESULTS: 36 / 13  -- *** TEST FAILED ***
+FINAL TEST RESULTS: 36 / 54  -- *** TEST FAILED ***
+File 'dominion.c'
+Lines executed:24.54% of 595
+Creating 'dominion.c.gcov'
+
+
+unittest4.c (whoseTurn):
+testing whoseTurn player1 -- -- TEST PASSED
+testing whoseTurn player2 -- -- TEST PASSED
+FINAL TEST RESULTS: 2 / 2  -- TEST PASSED
 File 'dominion.c'
 Lines executed:24.54% of 595
 Creating 'dominion.c.gcov'

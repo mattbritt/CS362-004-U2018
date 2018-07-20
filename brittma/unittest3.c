@@ -114,7 +114,7 @@ int runThrough(int player, int *array, int limit)
 // test function for scoreFor
 void testScoreFor()
 {
-    const int numTests = 13;
+    const int numTests = 54;
     int passCount = 0;
 
     // init test State

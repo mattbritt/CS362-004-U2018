@@ -50,6 +50,12 @@ unittestresult: unittest1.c unittest2.c dominion.o rngs.o
 	unittest3 >> tests.out
 	gcov dominion.c >> tests.out 
 
+	echo >> tests.out
+	echo "unittest4.c (whoseTurn):" >> tests.out
+	gcc -o unittest4 unittest4.c -g dominion.o rngs.o $(CFLAGS)
+	unittest4 >> tests.out
+	gcov dominion.c >> tests.out 
+
 
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
