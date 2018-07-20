@@ -83,6 +83,12 @@ unittestresult: unittest1.c unittest2.c unittest3.c unittest4.c dominion.o rngs.
 	cardtest3 >> tests.out
 	#gcov -b -f dominion.c >> tests.out
 
+	echo >> tests.out
+	echo "cardtest4.c (Feast):" >> tests.out
+	gcc -o cardtest4 cardtest4.c -g dominion.c rngs.c $(CFLAGS)
+	cardtest4 >> tests.out
+	#gcov -b -f dominion.c >> tests.out
+
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
 
