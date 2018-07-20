@@ -1,0 +1,121 @@
+Result for running dominion.c unit tests: 
+
+unittest1.c (numHandCards):
+testing initializeGame -- -- TEST PASSED
+testing state.handcount[0] {5} == NumHandCards -- -- TEST PASSED
+testing state.handcount[1] {0} == NumHandCards -- -- TEST PASSED
+FINAL TEST RESULTS: 3 / 3  -- TEST PASSED
+
+unittest2.c (fullDeckCount):
+testing uninitialized deck -- -- TEST PASSED
+testing initialized deck -- -- TEST PASSED
+testing card at start of deck -- -- TEST PASSED
+testing card in middle of deck -- -- TEST PASSED
+testing card at end of deck -- -- TEST PASSED
+testing card at start of hand -- -- TEST PASSED
+testing card in middle of hand -- -- TEST PASSED
+testing card at end of hand -- -- TEST PASSED
+testing card at start of  discard -- -- TEST PASSED
+testing card in middle of discard -- -- TEST PASSED
+testing card at end of  discard -- -- TEST PASSED
+testing card in deck and discard -- -- TEST PASSED
+testing card in deck, hand and discard -- -- TEST PASSED
+FINAL TEST RESULTS: 13 / 13  -- TEST PASSED
+
+unittest3.c (scoreFor):
+
+Testing player 0, hand: 
+
+testing non scoring -- -- TEST PASSED
+testing 1 curse -- -- TEST PASSED
+testing 1 estate -- -- TEST PASSED
+testing 1 duchy -- -- TEST PASSED
+testing 1 province -- -- TEST PASSED
+testing 1 great hall -- -- TEST PASSED
+testing 1  gardens -- -- *** TEST FAILED ***
+testing 1 curse & great hall -- -- TEST PASSED
+testing 1 curse, estate, duchy, province, great hall -- -- TEST PASSED
+
+Testing player 0, deck: 
+
+testing non scoring -- -- TEST PASSED
+testing 1 curse -- -- *** TEST FAILED ***
+testing 1 estate -- -- *** TEST FAILED ***
+testing 1 duchy -- -- *** TEST FAILED ***
+testing 1 province -- -- *** TEST FAILED ***
+testing 1 great hall -- -- *** TEST FAILED ***
+testing 1  gardens -- -- *** TEST FAILED ***
+testing 1 curse & great hall -- -- TEST PASSED
+testing 1 curse, estate, duchy, province, great hall -- -- *** TEST FAILED ***
+
+Testing player 0, discard: 
+
+testing non scoring -- -- TEST PASSED
+testing 1 curse -- -- TEST PASSED
+testing 1 estate -- -- TEST PASSED
+testing 1 duchy -- -- TEST PASSED
+testing 1 province -- -- TEST PASSED
+testing 1 great hall -- -- TEST PASSED
+testing 1  gardens -- -- *** TEST FAILED ***
+testing 1 curse & great hall -- -- TEST PASSED
+testing 1 curse, estate, duchy, province, great hall -- -- TEST PASSED
+
+Testing player 1, hand: 
+
+testing non scoring -- -- TEST PASSED
+testing 1 curse -- -- TEST PASSED
+testing 1 estate -- -- TEST PASSED
+testing 1 duchy -- -- TEST PASSED
+testing 1 province -- -- TEST PASSED
+testing 1 great hall -- -- TEST PASSED
+testing 1  gardens -- -- *** TEST FAILED ***
+testing 1 curse & great hall -- -- TEST PASSED
+testing 1 curse, estate, duchy, province, great hall -- -- TEST PASSED
+
+Testing player 1, deck: 
+
+testing non scoring -- -- TEST PASSED
+testing 1 curse -- -- *** TEST FAILED ***
+testing 1 estate -- -- *** TEST FAILED ***
+testing 1 duchy -- -- *** TEST FAILED ***
+testing 1 province -- -- *** TEST FAILED ***
+testing 1 great hall -- -- *** TEST FAILED ***
+testing 1  gardens -- -- *** TEST FAILED ***
+testing 1 curse & great hall -- -- TEST PASSED
+testing 1 curse, estate, duchy, province, great hall -- -- *** TEST FAILED ***
+
+Testing player 1, discard: 
+
+testing non scoring -- -- TEST PASSED
+testing 1 curse -- -- TEST PASSED
+testing 1 estate -- -- TEST PASSED
+testing 1 duchy -- -- TEST PASSED
+testing 1 province -- -- TEST PASSED
+testing 1 great hall -- -- TEST PASSED
+testing 1  gardens -- -- *** TEST FAILED ***
+testing 1 curse & great hall -- -- TEST PASSED
+testing 1 curse, estate, duchy, province, great hall -- -- TEST PASSED
+FINAL TEST RESULTS: 36 / 54  -- *** TEST FAILED ***
+
+unittest4.c (whoseTurn):
+testing whoseTurn player1 -- -- TEST PASSED
+testing whoseTurn player2 -- -- TEST PASSED
+FINAL TEST RESULTS: 2 / 2  -- TEST PASSED
+
+cardtest1.c (Smithy):
+Testing 3 cards drawn-- *** TEST FAILED ***
+Testing 1 fewer Smithy-- TEST PASSED
+FINAL TEST RESULTS: 1 / 2  -- *** TEST FAILED ***
+
+cardtest2.c (Adventurer):
+discard start: 0
+discard end: 1
+Testing Found 2 Treasure OR all deck drawn-- TEST PASSED
+Testing 1 fewer Adventurer-- TEST PASSED
+Testing Discarded cards count-- TEST PASSED
+1 - 3 FINAL TEST RESULTS: 3 / 3  -- TEST PASSED
+
+cardtest3.c (Baron):
+Testing 1 fewer Baron-- *** TEST FAILED ***
+1 vs 1
+FINAL TEST RESULTS: 0 / 2  -- *** TEST FAILED ***

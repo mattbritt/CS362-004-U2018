@@ -764,7 +764,9 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
 
       return 0;
-		
+		 
+
+
     case smithy:
       return playSmithy(currentPlayer, state, handPos);
 		
@@ -1113,6 +1115,8 @@ int playSmithy(int currentPlayer, struct gameState *state, int handPos)
 // refactored for assignment 2 - mb
 int playAdventurer(int currentPlayer, struct gameState *state, int cardDrawn, int drawntreasure, int temphand[], int z)
 {
+
+  printf("discard start: %d\n", state->discardCount[0]);
         while(drawntreasure<2){
 	if (state->deckCount[currentPlayer] <1){//if the deck is empty we need to shuffle discard and add to deck
 	  shuffle(currentPlayer, state);
@@ -1132,6 +1136,8 @@ int playAdventurer(int currentPlayer, struct gameState *state, int cardDrawn, in
 	z=z-1;
       }
 
+
+  printf("discard end: %d\n", state->discardCount[0]);
   return 0;
 }
 
@@ -1244,7 +1250,7 @@ int playTribute(struct gameState *state, int nextPlayer, int currentPlayer)
 	  state->coins += 2;
 	}
 		    
-	else if (tributeRevealedCards[i] == estate && tributeRevealedCards[i] == duchy || tributeRevealedCards[i] == province || tributeRevealedCards[i] == gardens || tributeRevealedCards[i] == great_hall){//Victory Card Found
+	else if ((tributeRevealedCards[i] == estate && tributeRevealedCards[i] == duchy )|| (tributeRevealedCards[i] == province )||( tributeRevealedCards[i] == gardens )||( tributeRevealedCards[i] == great_hall)){//Victory Card Found
 	  //BUG:&& show be ||
     drawCard(currentPlayer, state);
 	  drawCard(currentPlayer, state);
