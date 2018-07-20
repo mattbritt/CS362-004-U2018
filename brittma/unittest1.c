@@ -2,7 +2,7 @@
  * 
  *      Assignment 3: Unit Test #1
  *      Author: Matt Britt
- *      Date: July 19th, 2108
+ *      Date: July 19th, 2018
  *      Description:  This is a unit test for numHandCards().  This is a simple test to make sure my test framework is working.
  * 
  * 

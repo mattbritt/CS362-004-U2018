@@ -44,6 +44,12 @@ unittestresult: unittest1.c unittest2.c dominion.o rngs.o
 	unittest2 >> tests.out
 	gcov dominion.c >> tests.out 
 
+	echo >> tests.out
+	echo "unittest3.c (scoreFor):" >> tests.out
+	gcc -o unittest3 unittest3.c -g dominion.o rngs.o $(CFLAGS)
+	unittest3 >> tests.out
+	gcov dominion.c >> tests.out 
+
 
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)

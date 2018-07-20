@@ -141,24 +141,24 @@ int initializeGame(int numPlayers, int kingdomCards[10], int randomSeed,
     {
       state->deckCount[i] = 0;
       for (j = 0; j < 3; j++)
-	{
-	  state->deck[i][j] = estate;
-	  state->deckCount[i]++;
-	}
+      {
+        state->deck[i][j] = estate;
+        state->deckCount[i]++;
+      }
       for (j = 3; j < 10; j++)
-	{
-	  state->deck[i][j] = copper;
-	  state->deckCount[i]++;		
-	}
+      {
+        state->deck[i][j] = copper;
+        state->deckCount[i]++;		
+      }
     }
 
   //shuffle player decks
   for (i = 0; i < numPlayers; i++)
     {
       if ( shuffle(i, state) < 0 )
-	{
-	  return -1;
-	}
+      {
+        return -1;
+      }
     }
 
   //draw player hands
@@ -443,7 +443,7 @@ int scoreFor (int player, struct gameState *state) {
     }
 
   //score from deck
-  for (i = 0; i < state->discardCount[player]; i++)
+  for (i = 0; i < state->discardCount[player]; i++)   // **** error: discardCount
     {
       if (state->deck[player][i] == curse) { score = score - 1; };
       if (state->deck[player][i] == estate) { score = score + 1; };

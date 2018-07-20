@@ -6,7 +6,7 @@ testing state.handcount[0] {5} == NumHandCards -- -- TEST PASSED
 testing state.handcount[1] {0} == NumHandCards -- -- TEST PASSED
 FINAL TEST RESULTS: 3 / 3  -- TEST PASSED
 File 'dominion.c'
-Lines executed:20.34% of 595
+Lines executed:24.54% of 595
 Creating 'dominion.c.gcov'
 
 
@@ -26,6 +26,85 @@ testing card in deck and discard -- -- TEST PASSED
 testing card in deck, hand and discard -- -- TEST PASSED
 FINAL TEST RESULTS: 13 / 13  -- TEST PASSED
 File 'dominion.c'
-Lines executed:20.34% of 595
+Lines executed:24.54% of 595
+Creating 'dominion.c.gcov'
+
+
+unittest3.c (scoreFor):
+
+Testing player 0, hand: 
+
+testing non scoring -- -- TEST PASSED
+testing 1 curse -- -- TEST PASSED
+testing 1 estate -- -- TEST PASSED
+testing 1 duchy -- -- TEST PASSED
+testing 1 province -- -- TEST PASSED
+testing 1 great hall -- -- TEST PASSED
+testing 1  gardens -- -- *** TEST FAILED ***
+testing 1 curse & great hall -- -- TEST PASSED
+testing 1 curse, estate, duchy, province, great hall -- -- TEST PASSED
+
+Testing player 0, deck: 
+
+testing non scoring -- -- TEST PASSED
+testing 1 curse -- -- *** TEST FAILED ***
+testing 1 estate -- -- *** TEST FAILED ***
+testing 1 duchy -- -- *** TEST FAILED ***
+testing 1 province -- -- *** TEST FAILED ***
+testing 1 great hall -- -- *** TEST FAILED ***
+testing 1  gardens -- -- *** TEST FAILED ***
+testing 1 curse & great hall -- -- TEST PASSED
+testing 1 curse, estate, duchy, province, great hall -- -- *** TEST FAILED ***
+
+Testing player 0, discard: 
+
+testing non scoring -- -- TEST PASSED
+testing 1 curse -- -- TEST PASSED
+testing 1 estate -- -- TEST PASSED
+testing 1 duchy -- -- TEST PASSED
+testing 1 province -- -- TEST PASSED
+testing 1 great hall -- -- TEST PASSED
+testing 1  gardens -- -- *** TEST FAILED ***
+testing 1 curse & great hall -- -- TEST PASSED
+testing 1 curse, estate, duchy, province, great hall -- -- TEST PASSED
+
+Testing player 1, hand: 
+
+testing non scoring -- -- TEST PASSED
+testing 1 curse -- -- TEST PASSED
+testing 1 estate -- -- TEST PASSED
+testing 1 duchy -- -- TEST PASSED
+testing 1 province -- -- TEST PASSED
+testing 1 great hall -- -- TEST PASSED
+testing 1  gardens -- -- *** TEST FAILED ***
+testing 1 curse & great hall -- -- TEST PASSED
+testing 1 curse, estate, duchy, province, great hall -- -- TEST PASSED
+
+Testing player 1, deck: 
+
+testing non scoring -- -- TEST PASSED
+testing 1 curse -- -- *** TEST FAILED ***
+testing 1 estate -- -- *** TEST FAILED ***
+testing 1 duchy -- -- *** TEST FAILED ***
+testing 1 province -- -- *** TEST FAILED ***
+testing 1 great hall -- -- *** TEST FAILED ***
+testing 1  gardens -- -- *** TEST FAILED ***
+testing 1 curse & great hall -- -- TEST PASSED
+testing 1 curse, estate, duchy, province, great hall -- -- *** TEST FAILED ***
+
+Testing player 1, discard: 
+
+testing non scoring -- -- TEST PASSED
+testing 1 curse -- -- TEST PASSED
+testing 1 estate -- -- TEST PASSED
+testing 1 duchy -- -- TEST PASSED
+testing 1 province -- -- TEST PASSED
+testing 1 great hall -- -- TEST PASSED
+testing 1  gardens -- -- *** TEST FAILED ***
+testing 1 curse & great hall -- -- TEST PASSED
+testing 1 curse, estate, duchy, province, great hall -- -- TEST PASSED
+FINAL TEST RESULTS: 36 / 13  -- *** TEST FAILED ***
+File 'dominion.c'
+Lines executed:24.54% of 595
 Creating 'dominion.c.gcov'
 
