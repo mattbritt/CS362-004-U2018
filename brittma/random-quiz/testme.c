@@ -1,3 +1,12 @@
+/*****************************************
+ * 
+ *  Name: Random Testing Quiz
+ *  Author: Matt Britt
+ *  Date: 7/21/2018
+ *  Description: inputChar and inputString have been implemented to randomly provide testme() with input until the error is thrown.
+ * 
+ * ***************************************/
+
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
@@ -5,14 +14,34 @@
 
 char inputChar()
 {
-    // TODO: rewrite this function
-    return ' ';
+    return 32 + rand() % 94;
 }
 
 char *inputString()
 {
-    // TODO: rewrite this function
-    return "";
+    static char string[6] = {'\0'};
+    char c;
+
+    for(int i = 0; i < 5; i++)
+    {
+      switch(rand() % 4)
+      {
+        case 0:
+          c = 'r';
+          break;
+        case 1:
+          c = 'e';
+          break;
+        case 2:
+          c = 's';
+          break;
+        case 3:
+          c = 't';
+          break;
+      }
+      string[i] = c;
+    }
+    return &string;
 }
 
 void testme()
