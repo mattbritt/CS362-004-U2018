@@ -114,6 +114,8 @@ int main()
     SelectStream(2);
     PutSeed(3);
 
+    printf("\n\n Testing Smithy . . .\n\n");
+
     randTestSmithy();
     return 0;
 }
