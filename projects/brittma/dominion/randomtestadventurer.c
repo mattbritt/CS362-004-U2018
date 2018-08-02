@@ -42,56 +42,38 @@ int countTreasureCards(int array[], int size)
 // check if adventurer card performs as expected
 void checkAdventurer(int currentPlayer, struct gameState *state)
 {
+    int oHandCount = state->handCount[currentPlayer];
     
-    int oNumTreasureCardsHand = countTreasureCards(state->hand[currentPlayer], state->handCount[currentPlayer]);
-    int oNumTreasureCardsDeck = countTreasureCards(state->deck[currentPlayer], state->deckCount[currentPlayer]) + countTreasureCards(state->discard[currentPlayer], state->discardCount[currentPlayer]);
-    int oNumDiscardCards = state->discardCount[currentPlayer];
-    int oNumDeckCards = state->deckCount[currentPlayer];
-    int oNumHandCards = state->handCount[currentPlayer];
-    int totalTreasure = fullDeckCount(currentPlayer, copper, state) + fullDeckCount(currentPlayer, silver, state) + fullDeckCount(currentPlayer, gold, state);
-printf("******************** oNUmTreasureCardsHand: %d -- oNumTreasureCardsDeck: %d -- totalTreasure: %d\n", oNumTreasureCardsHand, oNumTreasureCardsDeck, totalTreasure);
+    int deckTreasureCards = countTreasureCards(state->deck[currentPlayer], state->deckCount[currentPlayer]);
+    int discardTreasureCards = countTreasureCards(state->discard[currentPlayer], state->discardCount[currentPlayer]);
+    int oHandTreasureCards = countTreasureCards(state->hand[currentPlayer], state->handCount[currentPlayer]);
+
+    int availableTreasureCards = deckTreasureCards + discardTreasureCards;
+printf("check: deckTs: %d, discardTs: %d \n", deckTreasureCards, discardTreasureCards);
+
     // check that playAdventurer returned 0 (success)    
     if(0 == asserttrue(0 == playAdventurer(currentPlayer, state)))//, cardDrawn, drawnTreasure)))
     {
         printf("playAdventurer returned failure" );
     }
-//printf("playAdventurer returned\n");
-    int NumTreasureCardsHand = countTreasureCards(state->hand[currentPlayer], state->handCount[currentPlayer]);
-    int NumTreasureCardsDeck = countTreasureCards(state->deck[currentPlayer], state->deckCount[currentPlayer]);
-    int availableTreasureCards = totalTreasure - oNumHandCards;
 
-    // check that number of cards removed from deck == number added to hand
-    // note: differences may be negative due to the shuffle
-    if(0 == asserttrue( (oNumDeckCards - state->deckCount[currentPlayer]) == (state->discardCount[currentPlayer] - oNumDiscardCards)))
+    // check that handCount increased by appropriate number of available treasure cards
+    int increase = 2;
+    if(availableTreasureCards < 2) increase = availableTreasureCards;
+    
+    if(0 == asserttrue(state->handCount[currentPlayer] == oHandCount + increase))
     {
-        printf("failed to add cards removed from deck to discard: removed from deck: %d -- added to discard: %d\n", (oNumDeckCards - state->deckCount[currentPlayer]),  (state->discardCount[currentPlayer] - oNumDiscardCards));
+        printf("failure to increase in handCount does not match available treasure cards: handCount: %d -- oHandCount: %d -- availableTreasureCards: %d\n", state->handCount[currentPlayer], oHandCount, availableTreasureCards);
+        printf("increase: %d\n", increase);
     }
 
-    // check that # treasure cards in hand is valid based on available treasure cards
-    if(0 == asserttrue(NumTreasureCardsHand == oNumTreasureCardsHand - availableTreasureCards))
+    //check that the hand now has appropriate increase in treasure cards
+    int handTreasureCards = countTreasureCards(state->hand[currentPlayer], state->handCount[currentPlayer]);
+    if(0 == asserttrue(handTreasureCards == oHandTreasureCards + increase))
     {
-        printf("treasure cards in hand changed but no treasure cards were available: oNumTreasureCards: %d -- NumTreasureCards: %d\n", NumTreasureCardsHand, oNumTreasureCardsHand - availableTreasureCards);
+        printf("failure to increase treasure cards in hand: handTreasureCards: %d, oHandTreasureCards: %d, increase: %d\n", handTreasureCards, oHandTreasureCards, increase);
     }
-
-    // if there were two treasure cards to remove from deck
-    if(oNumTreasureCardsDeck >= 2)
-    {    // check that two treasure cards were added to hand
-        if(0 == asserttrue(NumTreasureCardsHand == oNumTreasureCardsHand + 2))
-        {
-            printf("failed to add 2 treasure cards to hand: oNumTreasureCardsHand: %d -- NumTreasureCardsHand: %d\n", oNumTreasureCardsHand, NumTreasureCardsHand);
-        }
-        // check that two treasure cards were removed from deck
-        if(0 == asserttrue(NumTreasureCardsDeck == oNumTreasureCardsDeck - 2))
-        {
-            printf("failed to remove 2 treasure cards from deck: oNumTreasureCards: %d -- NumTreasureCards: %d\n", oNumTreasureCardsDeck, NumTreasureCardsDeck);
-        }
-    }
-    // else there were less than 2 treasure cards in deck
-    else
-    {
-
-    }
-
+  
 }
 
 // add adventurer to the hand

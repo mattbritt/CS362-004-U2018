@@ -1109,6 +1109,7 @@ int playSmithy(int currentPlayer, struct gameState *state, int handPos)
 //int playAdventurer(int currentPlayer, struct gameState *state, int cardDrawn, int drawntreasure, int temphand[], int z)
 int playAdventurer(int currentPlayer, struct gameState *state)
 {
+
   int drawntreasure = 0;
   int cardDrawn;
   int temphand[MAX_HAND];
