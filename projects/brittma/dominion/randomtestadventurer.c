@@ -42,25 +42,35 @@ int countTreasureCards(int array[], int size)
 // check if adventurer card performs as expected
 void checkAdventurer(int currentPlayer, struct gameState *state)
 {
+    
     int oNumTreasureCardsHand = countTreasureCards(state->hand[currentPlayer], state->handCount[currentPlayer]);
-    int oNumTreasureCardsDeck = countTreasureCards(state->deck[currentPlayer], state->deckCount[currentPlayer]);
-   // int oNumDiscardCards = state->discardCount[currentPlayer];
+    int oNumTreasureCardsDeck = countTreasureCards(state->deck[currentPlayer], state->deckCount[currentPlayer]) + countTreasureCards(state->discard[currentPlayer], state->discardCount[currentPlayer]);
+    int oNumDiscardCards = state->discardCount[currentPlayer];
     int oNumDeckCards = state->deckCount[currentPlayer];
     int oNumHandCards = state->handCount[currentPlayer];
-
+    int totalTreasure = fullDeckCount(currentPlayer, copper, state) + fullDeckCount(currentPlayer, silver, state) + fullDeckCount(currentPlayer, gold, state);
+printf("******************** oNUmTreasureCardsHand: %d -- oNumTreasureCardsDeck: %d -- totalTreasure: %d\n", oNumTreasureCardsHand, oNumTreasureCardsDeck, totalTreasure);
     // check that playAdventurer returned 0 (success)    
     if(0 == asserttrue(0 == playAdventurer(currentPlayer, state)))//, cardDrawn, drawnTreasure)))
     {
         printf("playAdventurer returned failure" );
     }
-
+//printf("playAdventurer returned\n");
     int NumTreasureCardsHand = countTreasureCards(state->hand[currentPlayer], state->handCount[currentPlayer]);
     int NumTreasureCardsDeck = countTreasureCards(state->deck[currentPlayer], state->deckCount[currentPlayer]);
-    
+    int availableTreasureCards = totalTreasure - oNumHandCards;
+
     // check that number of cards removed from deck == number added to hand
-    if(0 == asserttrue( (oNumDeckCards - state->deckCount[currentPlayer]) == (state->handCount[currentPlayer] - oNumHandCards)))
+    // note: differences may be negative due to the shuffle
+    if(0 == asserttrue( (oNumDeckCards - state->deckCount[currentPlayer]) == (state->discardCount[currentPlayer] - oNumDiscardCards)))
     {
-        printf("failed to add cards removed from deck to hand: removed from deck: %d -- added to hand: %d\n", (oNumDeckCards - state->deckCount[currentPlayer]),  (state->handCount[currentPlayer] - oNumHandCards));
+        printf("failed to add cards removed from deck to discard: removed from deck: %d -- added to discard: %d\n", (oNumDeckCards - state->deckCount[currentPlayer]),  (state->discardCount[currentPlayer] - oNumDiscardCards));
+    }
+
+    // check that # treasure cards in hand is valid based on available treasure cards
+    if(0 == asserttrue(NumTreasureCardsHand == oNumTreasureCardsHand - availableTreasureCards))
+    {
+        printf("treasure cards in hand changed but no treasure cards were available: oNumTreasureCards: %d -- NumTreasureCards: %d\n", NumTreasureCardsHand, oNumTreasureCardsHand - availableTreasureCards);
     }
 
     // if there were two treasure cards to remove from deck
@@ -89,6 +99,16 @@ void addAdventurer(int player, struct gameState* state)
 {
     state->hand[player][state->handCount[player]] = adventurer;
     state->handCount[player]++;
+}
+
+int randomTreasureCard()
+{
+    switch((int)floor(Random() * 3))
+    {
+        case 0: return copper;
+        case 1: return silver;
+    }
+    return gold;
 }
 
 // set up testing for adventurer card
@@ -120,6 +140,22 @@ void randTestAdventuer()
         state->discardCount[p] = floor(Random() * MAX_DECK);
         state->handCount[p] = floor(Random() * MAX_HAND);
         state->playedCardCount = floor(Random() * MAX_HAND);
+
+    // randomly add treasure cards to hand, deck and discard
+        int randNumTreasureCards = floor(Random() * 5);
+        for(int i = 0; i < randNumTreasureCards; i++)
+            state->hand[p][(int)floor(Random()* state->handCount[p])] = randomTreasureCard(); 
+
+        randNumTreasureCards = floor(Random() * 5);
+        for(int i = 0; i < randNumTreasureCards; i++)
+            state->deck[p][(int)floor(Random()* state->deckCount[p])] = randomTreasureCard(); 
+
+        randNumTreasureCards = floor(Random() * 5);
+        for(int i = 0; i < randNumTreasureCards; i++)
+            state->discard[p][(int)floor(Random()* state->discardCount[p])] = randomTreasureCard(); 
+
+
+
         addAdventurer(p, state);
         checkAdventurer(p, state);
 
@@ -131,7 +167,7 @@ void randTestAdventuer()
 int main()
 {
     SelectStream(2);
-    PutSeed(3);
+    PutSeed(-1);//3);
 
     printf("\n\n Testing Adventurer\n\n");
 
