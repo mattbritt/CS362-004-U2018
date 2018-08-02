@@ -7,7 +7,15 @@ randomtestcard1: randomtestcard1.c dominion.o
 	gcov -b -f dominion.c >> randomtestcard1.out
 	lcov --capture --directory ./ --output-file randomtestcard1.info
 	genhtml randomtestcard1.info --output-directory randomtestcard1-lcov
-	
+
+randomtestcard2: randomtestcard2.c dominion.o
+	echo randomtestcard2.out
+	gcc -o randomtestcard2 -g randomtestcard2.c dominion.o rngs.o $(CFLAGS)
+	randomtestcard2 >> randomtestcard2.out
+	gcov -b -f dominion.c >> randomtestcard2.out
+	lcov --capture --directory ./ --output-file randomtestcard2.info
+	genhtml randomtestcard2.info --output-directory randomtestcard2-lcov
+
 randomtestadventurer: randomtestadventurer.c dominion.o
 	echo >> randomtestadventurer.out
 	gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
