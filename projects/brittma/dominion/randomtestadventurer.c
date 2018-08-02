@@ -8,6 +8,7 @@
  * ***********************************************/
 
 #define NOISY_TEST 0
+#define TEST_TEST 1
 
 #include "asserttrue.h"
 #include "dominion.h"
@@ -43,13 +44,15 @@ int countTreasureCards(int array[], int size)
 void checkAdventurer(int currentPlayer, struct gameState *state)
 {
     int oHandCount = state->handCount[currentPlayer];
+    int oDeckCount = state->deckCount[currentPlayer];
+    int oDiscardCount = state->discardCount[currentPlayer];
     
-    int deckTreasureCards = countTreasureCards(state->deck[currentPlayer], state->deckCount[currentPlayer]);
-    int discardTreasureCards = countTreasureCards(state->discard[currentPlayer], state->discardCount[currentPlayer]);
+    int oDeckTreasureCards = countTreasureCards(state->deck[currentPlayer], state->deckCount[currentPlayer]);
+    int oDiscardTreasureCards = countTreasureCards(state->discard[currentPlayer], state->discardCount[currentPlayer]);
     int oHandTreasureCards = countTreasureCards(state->hand[currentPlayer], state->handCount[currentPlayer]);
 
-    int availableTreasureCards = deckTreasureCards + discardTreasureCards;
-printf("check: deckTs: %d, discardTs: %d \n", deckTreasureCards, discardTreasureCards);
+    int availableTreasureCards = oDeckTreasureCards + oDiscardTreasureCards;
+printf("check: oDeckTs: %d, oDiscardTs: %d \n", oDeckTreasureCards, oDiscardTreasureCards);
 
     // check that playAdventurer returned 0 (success)    
     if(0 == asserttrue(0 == playAdventurer(currentPlayer, state)))//, cardDrawn, drawnTreasure)))
@@ -60,7 +63,9 @@ printf("check: deckTs: %d, discardTs: %d \n", deckTreasureCards, discardTreasure
     // check that handCount increased by appropriate number of available treasure cards
     int increase = 2;
     if(availableTreasureCards < 2) increase = availableTreasureCards;
-    
+
+
+if(!TEST_TEST){  
     if(0 == asserttrue(state->handCount[currentPlayer] == oHandCount + increase))
     {
         printf("failure to increase in handCount does not match available treasure cards: handCount: %d -- oHandCount: %d -- availableTreasureCards: %d\n", state->handCount[currentPlayer], oHandCount, availableTreasureCards);
@@ -73,7 +78,28 @@ printf("check: deckTs: %d, discardTs: %d \n", deckTreasureCards, discardTreasure
     {
         printf("failure to increase treasure cards in hand: handTreasureCards: %d, oHandTreasureCards: %d, increase: %d\n", handTreasureCards, oHandTreasureCards, increase);
     }
-  
+
+
+    // check that the deck & discard have fewer cards
+    int deckPlusDiscardCount = state->deckCount[currentPlayer] + state->discardCount[currentPlayer];
+    int oDeckPlusDiscardCount = oDeckCount + oDiscardCount;
+
+    if(0 == asserttrue(oDeckPlusDiscardCount == deckPlusDiscardCount + increase))
+    {
+        printf("failure to move cards from deck & discard to hand\n");
+    }
+
+
+    // check that deck & discard have fewer treasure cards
+    int deckPlustDiscardTreasure = countTreasureCards(state->deck[currentPlayer], state->deckCount[currentPlayer]);
+      deckPlustDiscardTreasure += countTreasureCards(state->discard[currentPlayer], state->discardCount[currentPlayer]);
+    int oDeckPlusDiscardTreasure = oDeckTreasureCards + oDiscardTreasureCards;
+
+    if(0 == asserttrue(deckPlustDiscardTreasure == oDeckPlusDiscardTreasure - increase))
+    {
+        printf("failure to decrease treasure cards from deck and discard\n");
+    }
+  }////////
 }
 
 // add adventurer to the hand
