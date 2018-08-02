@@ -31,18 +31,18 @@
             <td class="headerValue">randomtestcard1.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">83</td>
-            <td class="headerCovTableEntry">585</td>
-            <td class="headerCovTableEntryLo">14.2 %</td>
+            <td class="headerCovTableEntry">63</td>
+            <td class="headerCovTableEntry">603</td>
+            <td class="headerCovTableEntryLo">10.4 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2018-08-01 21:57:25</td>
+            <td class="headerValue">2018-08-02 12:43:08</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntry">6</td>
             <td class="headerCovTableEntry">27</td>
-            <td class="headerCovTableEntryLo">25.9 %</td>
+            <td class="headerCovTableEntryLo">22.2 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -68,17 +68,17 @@
 <span class="lineNum">       6 </span>            : #include &lt;stdlib.h&gt;
 <a name="7"><span class="lineNum">       7 </span>            : </a>
 <span class="lineNum">       8 </span>            : 
-<span class="lineNum">       9 </span><span class="lineCov">    1438469 : int compare(const void* a, const void* b) {</span>
-<span class="lineNum">      10 </span><span class="lineCov">    1438469 :   if (*(int*)a &gt; *(int*)b)</span>
-<span class="lineNum">      11 </span><span class="lineCov">     737182 :     return 1;</span>
-<span class="lineNum">      12 </span><span class="lineCov">     701287 :   if (*(int*)a &lt; *(int*)b)</span>
-<span class="lineNum">      13 </span><span class="lineCov">     700773 :     return -1;</span>
-<span class="lineNum">      14 </span><span class="lineCov">        514 :   return 0;</span>
+<span class="lineNum">       9 </span><span class="lineCov">      27360 : int compare(const void* a, const void* b) {</span>
+<span class="lineNum">      10 </span><span class="lineCov">      27360 :   if (*(int*)a &gt; *(int*)b)</span>
+<span class="lineNum">      11 </span><span class="lineCov">      14066 :     return 1;</span>
+<span class="lineNum">      12 </span><span class="lineCov">      13294 :   if (*(int*)a &lt; *(int*)b)</span>
+<span class="lineNum">      13 </span><span class="lineCov">      13294 :     return -1;</span>
+<span class="lineNum">      14 </span><span class="lineNoCov">          0 :   return 0;</span>
 <a name="15"><span class="lineNum">      15 </span>            : }</a>
 <span class="lineNum">      16 </span>            : 
-<span class="lineNum">      17 </span><span class="lineCov">       4000 : struct gameState* newGame() {</span>
-<span class="lineNum">      18 </span><span class="lineCov">       4000 :   struct gameState* g = malloc(sizeof(struct gameState));</span>
-<span class="lineNum">      19 </span><span class="lineCov">       4000 :   return g;</span>
+<span class="lineNum">      17 </span><span class="lineCov">       2000 : struct gameState* newGame() {</span>
+<span class="lineNum">      18 </span><span class="lineCov">       2000 :   struct gameState* g = malloc(sizeof(struct gameState));</span>
+<span class="lineNum">      19 </span><span class="lineCov">       2000 :   return g;</span>
 <a name="20"><span class="lineNum">      20 </span>            : }</a>
 <span class="lineNum">      21 </span>            : 
 <span class="lineNum">      22 </span><span class="lineNoCov">          0 : int* kingdomCards(int k1, int k2, int k3, int k4, int k5, int k6, int k7,</span>
@@ -261,34 +261,34 @@
 <span class="lineNum">     199 </span><span class="lineNoCov">          0 :   return 0;</span>
 <a name="200"><span class="lineNum">     200 </span>            : }</a>
 <span class="lineNum">     201 </span>            : 
-<span class="lineNum">     202 </span><span class="lineCov">       1656 : int shuffle(int player, struct gameState *state) {</span>
+<span class="lineNum">     202 </span><span class="lineCov">         14 : int shuffle(int player, struct gameState *state) {</span>
 <span class="lineNum">     203 </span>            :  
 <span class="lineNum">     204 </span>            : 
 <span class="lineNum">     205 </span>            :   int newDeck[MAX_DECK];
-<span class="lineNum">     206 </span><span class="lineCov">       1656 :   int newDeckPos = 0;</span>
+<span class="lineNum">     206 </span><span class="lineCov">         14 :   int newDeckPos = 0;</span>
 <span class="lineNum">     207 </span>            :   int card;
 <span class="lineNum">     208 </span>            :   int i;
 <span class="lineNum">     209 </span>            : 
-<span class="lineNum">     210 </span><span class="lineCov">       1656 :   if (state-&gt;deckCount[player] &lt; 1)</span>
-<span class="lineNum">     211 </span><span class="lineCov">        822 :     return -1;</span>
-<span class="lineNum">     212 </span><span class="lineCov">        834 :   qsort ((void*)(state-&gt;deck[player]), state-&gt;deckCount[player], sizeof(int), compare); </span>
+<span class="lineNum">     210 </span><span class="lineCov">         14 :   if (state-&gt;deckCount[player] &lt; 1)</span>
+<span class="lineNum">     211 </span><span class="lineNoCov">          0 :     return -1;</span>
+<span class="lineNum">     212 </span><span class="lineCov">         14 :   qsort ((void*)(state-&gt;deck[player]), state-&gt;deckCount[player], sizeof(int), compare); </span>
 <span class="lineNum">     213 </span>            :   /* SORT CARDS IN DECK TO ENSURE DETERMINISM! */
 <span class="lineNum">     214 </span>            : 
-<span class="lineNum">     215 </span><span class="lineCov">     207810 :   while (state-&gt;deckCount[player] &gt; 0) {</span>
-<span class="lineNum">     216 </span><span class="lineCov">     206142 :     card = floor(Random() * state-&gt;deckCount[player]);</span>
-<span class="lineNum">     217 </span><span class="lineCov">     206142 :     newDeck[newDeckPos] = state-&gt;deck[player][card];</span>
-<span class="lineNum">     218 </span><span class="lineCov">     206142 :     newDeckPos++;</span>
-<span class="lineNum">     219 </span><span class="lineCov">   17028391 :     for (i = card; i &lt; state-&gt;deckCount[player]-1; i++) {</span>
-<span class="lineNum">     220 </span><span class="lineCov">   16822249 :       state-&gt;deck[player][i] = state-&gt;deck[player][i+1];</span>
+<span class="lineNum">     215 </span><span class="lineCov">       3901 :   while (state-&gt;deckCount[player] &gt; 0) {</span>
+<span class="lineNum">     216 </span><span class="lineCov">       3873 :     card = floor(Random() * state-&gt;deckCount[player]);</span>
+<span class="lineNum">     217 </span><span class="lineCov">       3873 :     newDeck[newDeckPos] = state-&gt;deck[player][card];</span>
+<span class="lineNum">     218 </span><span class="lineCov">       3873 :     newDeckPos++;</span>
+<span class="lineNum">     219 </span><span class="lineCov">     326072 :     for (i = card; i &lt; state-&gt;deckCount[player]-1; i++) {</span>
+<span class="lineNum">     220 </span><span class="lineCov">     322199 :       state-&gt;deck[player][i] = state-&gt;deck[player][i+1];</span>
 <span class="lineNum">     221 </span>            :     }
-<span class="lineNum">     222 </span><span class="lineCov">     206142 :     state-&gt;deckCount[player]--;</span>
+<span class="lineNum">     222 </span><span class="lineCov">       3873 :     state-&gt;deckCount[player]--;</span>
 <span class="lineNum">     223 </span>            :   }
-<span class="lineNum">     224 </span><span class="lineCov">     206976 :   for (i = 0; i &lt; newDeckPos; i++) {</span>
-<span class="lineNum">     225 </span><span class="lineCov">     206142 :     state-&gt;deck[player][i] = newDeck[i];</span>
-<span class="lineNum">     226 </span><span class="lineCov">     206142 :     state-&gt;deckCount[player]++;</span>
+<span class="lineNum">     224 </span><span class="lineCov">       3887 :   for (i = 0; i &lt; newDeckPos; i++) {</span>
+<span class="lineNum">     225 </span><span class="lineCov">       3873 :     state-&gt;deck[player][i] = newDeck[i];</span>
+<span class="lineNum">     226 </span><span class="lineCov">       3873 :     state-&gt;deckCount[player]++;</span>
 <span class="lineNum">     227 </span>            :   }
 <span class="lineNum">     228 </span>            : 
-<span class="lineNum">     229 </span><span class="lineCov">        834 :   return 0;</span>
+<span class="lineNum">     229 </span><span class="lineCov">         14 :   return 0;</span>
 <a name="230"><span class="lineNum">     230 </span>            : }</a>
 <span class="lineNum">     231 </span>            : 
 <span class="lineNum">     232 </span><span class="lineNoCov">          0 : int playCard(int handPos, int choice1, int choice2, int choice3, struct gameState *state) </span>
@@ -335,7 +335,7 @@
 <span class="lineNum">     273 </span><span class="lineNoCov">          0 : int buyCard(int supplyPos, struct gameState *state) {</span>
 <span class="lineNum">     274 </span>            :   int who;
 <span class="lineNum">     275 </span>            :   if (DEBUG){
-<span class="lineNum">     276 </span>            :     printf(&quot;Entering buyCard...\n&quot;);
+<span class="lineNum">     276 </span><span class="lineNoCov">          0 :     printf(&quot;Entering buyCard...\n&quot;);</span>
 <span class="lineNum">     277 </span>            :   }
 <span class="lineNum">     278 </span>            : 
 <span class="lineNum">     279 </span>            :   // I don't know what to do about the phase thing.
@@ -344,15 +344,15 @@
 <span class="lineNum">     282 </span>            : 
 <span class="lineNum">     283 </span><span class="lineNoCov">          0 :   if (state-&gt;numBuys &lt; 1){</span>
 <span class="lineNum">     284 </span>            :     if (DEBUG)
-<span class="lineNum">     285 </span>            :       printf(&quot;You do not have any buys left\n&quot;);
+<span class="lineNum">     285 </span><span class="lineNoCov">          0 :       printf(&quot;You do not have any buys left\n&quot;);</span>
 <span class="lineNum">     286 </span><span class="lineNoCov">          0 :     return -1;</span>
 <span class="lineNum">     287 </span><span class="lineNoCov">          0 :   } else if (supplyCount(supplyPos, state) &lt;1){</span>
 <span class="lineNum">     288 </span>            :     if (DEBUG)
-<span class="lineNum">     289 </span>            :       printf(&quot;There are not any of that type of card left\n&quot;);
+<span class="lineNum">     289 </span><span class="lineNoCov">          0 :       printf(&quot;There are not any of that type of card left\n&quot;);</span>
 <span class="lineNum">     290 </span><span class="lineNoCov">          0 :     return -1;</span>
 <span class="lineNum">     291 </span><span class="lineNoCov">          0 :   } else if (state-&gt;coins &lt; getCost(supplyPos)){</span>
 <span class="lineNum">     292 </span>            :     if (DEBUG) 
-<span class="lineNum">     293 </span>            :       printf(&quot;You do not have enough money to buy that. You have %d coins.\n&quot;, state-&gt;coins);
+<span class="lineNum">     293 </span><span class="lineNoCov">          0 :       printf(&quot;You do not have enough money to buy that. You have %d coins.\n&quot;, state-&gt;coins);</span>
 <span class="lineNum">     294 </span><span class="lineNoCov">          0 :     return -1;</span>
 <span class="lineNum">     295 </span>            :   } else {
 <span class="lineNum">     296 </span><span class="lineNoCov">          0 :     state-&gt;phase=1;</span>
@@ -362,7 +362,7 @@
 <span class="lineNum">     300 </span><span class="lineNoCov">          0 :     state-&gt;coins = (state-&gt;coins) - (getCost(supplyPos));</span>
 <span class="lineNum">     301 </span><span class="lineNoCov">          0 :     state-&gt;numBuys--;</span>
 <span class="lineNum">     302 </span>            :     if (DEBUG)
-<span class="lineNum">     303 </span>            :       printf(&quot;You bought card number %d for %d coins. You now have %d buys and %d coins.\n&quot;, supplyPos, getCost(supplyPos), state-&gt;numBuys, state-&gt;coins);
+<span class="lineNum">     303 </span><span class="lineNoCov">          0 :       printf(&quot;You bought card number %d for %d coins. You now have %d buys and %d coins.\n&quot;, supplyPos, getCost(supplyPos), state-&gt;numBuys, state-&gt;coins);</span>
 <span class="lineNum">     304 </span>            :   }
 <span class="lineNum">     305 </span>            : 
 <span class="lineNum">     306 </span>            :   //state-&gt;discard[who][state-&gt;discardCount[who]] = supplyPos;
@@ -585,62 +585,62 @@
 <span class="lineNum">     523 </span><span class="lineNoCov">          0 :   return 0;</span>
 <a name="524"><span class="lineNum">     524 </span>            : }</a>
 <span class="lineNum">     525 </span>            : 
-<span class="lineNum">     526 </span><span class="lineCov">     376271 : int drawCard(int player, struct gameState *state)</span>
+<span class="lineNum">     526 </span><span class="lineCov">       8000 : int drawCard(int player, struct gameState *state)</span>
 <span class="lineNum">     527 </span>            : {       int count;
 <span class="lineNum">     528 </span>            :   int deckCounter;
-<span class="lineNum">     529 </span><span class="lineCov">     376271 :   if (state-&gt;deckCount[player] &lt;= 0){//Deck is empty</span>
+<span class="lineNum">     529 </span><span class="lineCov">       8000 :   if (state-&gt;deckCount[player] &lt;= 0){//Deck is empty</span>
 <span class="lineNum">     530 </span>            :     
 <span class="lineNum">     531 </span>            :     //Step 1 Shuffle the discard pile back into a deck
 <span class="lineNum">     532 </span>            :     int i;
 <span class="lineNum">     533 </span>            :     //Move discard to deck
-<span class="lineNum">     534 </span><span class="lineCov">     206977 :     for (i = 0; i &lt; state-&gt;discardCount[player];i++){</span>
-<span class="lineNum">     535 </span><span class="lineCov">     206142 :       state-&gt;deck[player][i] = state-&gt;discard[player][i];</span>
-<span class="lineNum">     536 </span><span class="lineCov">     206142 :       state-&gt;discard[player][i] = -1;</span>
+<span class="lineNum">     534 </span><span class="lineCov">       3887 :     for (i = 0; i &lt; state-&gt;discardCount[player];i++){</span>
+<span class="lineNum">     535 </span><span class="lineCov">       3873 :       state-&gt;deck[player][i] = state-&gt;discard[player][i];</span>
+<span class="lineNum">     536 </span><span class="lineCov">       3873 :       state-&gt;discard[player][i] = -1;</span>
 <span class="lineNum">     537 </span>            :     }
 <span class="lineNum">     538 </span>            : 
-<span class="lineNum">     539 </span><span class="lineCov">        835 :     state-&gt;deckCount[player] = state-&gt;discardCount[player];</span>
-<span class="lineNum">     540 </span><span class="lineCov">        835 :     state-&gt;discardCount[player] = 0;//Reset discard</span>
+<span class="lineNum">     539 </span><span class="lineCov">         14 :     state-&gt;deckCount[player] = state-&gt;discardCount[player];</span>
+<span class="lineNum">     540 </span><span class="lineCov">         14 :     state-&gt;discardCount[player] = 0;//Reset discard</span>
 <span class="lineNum">     541 </span>            : 
 <span class="lineNum">     542 </span>            :     //Shufffle the deck
-<span class="lineNum">     543 </span><span class="lineCov">        835 :     shuffle(player, state);//Shuffle the deck up and make it so that we can draw</span>
+<span class="lineNum">     543 </span><span class="lineCov">         14 :     shuffle(player, state);//Shuffle the deck up and make it so that we can draw</span>
 <span class="lineNum">     544 </span>            :    
 <span class="lineNum">     545 </span>            :     if (DEBUG){//Debug statements
-<span class="lineNum">     546 </span>            :       printf(&quot;Deck count now: %d\n&quot;, state-&gt;deckCount[player]);
+<span class="lineNum">     546 </span><span class="lineCov">         14 :       printf(&quot;Deck count now: %d\n&quot;, state-&gt;deckCount[player]);</span>
 <span class="lineNum">     547 </span>            :     }
 <span class="lineNum">     548 </span>            :     
-<span class="lineNum">     549 </span><span class="lineCov">        835 :     state-&gt;discardCount[player] = 0;</span>
+<span class="lineNum">     549 </span><span class="lineCov">         14 :     state-&gt;discardCount[player] = 0;</span>
 <span class="lineNum">     550 </span>            : 
 <span class="lineNum">     551 </span>            :     //Step 2 Draw Card
-<span class="lineNum">     552 </span><span class="lineCov">        835 :     count = state-&gt;handCount[player];//Get current player's hand count</span>
+<span class="lineNum">     552 </span><span class="lineCov">         14 :     count = state-&gt;handCount[player];//Get current player's hand count</span>
 <span class="lineNum">     553 </span>            :     
 <span class="lineNum">     554 </span>            :     if (DEBUG){//Debug statements
-<span class="lineNum">     555 </span>            :       printf(&quot;Current hand count: %d\n&quot;, count);
+<span class="lineNum">     555 </span><span class="lineCov">         14 :       printf(&quot;Current hand count: %d\n&quot;, count);</span>
 <span class="lineNum">     556 </span>            :     }
 <span class="lineNum">     557 </span>            :     
-<span class="lineNum">     558 </span><span class="lineCov">        835 :     deckCounter = state-&gt;deckCount[player];//Create a holder for the deck count</span>
+<span class="lineNum">     558 </span><span class="lineCov">         14 :     deckCounter = state-&gt;deckCount[player];//Create a holder for the deck count</span>
 <span class="lineNum">     559 </span>            : 
-<span class="lineNum">     560 </span><span class="lineCov">        835 :     if (deckCounter == 0)</span>
-<span class="lineNum">     561 </span><span class="lineCov">          1 :       return -1;</span>
+<span class="lineNum">     560 </span><span class="lineCov">         14 :     if (deckCounter == 0)</span>
+<span class="lineNum">     561 </span><span class="lineNoCov">          0 :       return -1;</span>
 <span class="lineNum">     562 </span>            : 
-<span class="lineNum">     563 </span><span class="lineCov">        834 :     state-&gt;hand[player][count] = state-&gt;deck[player][deckCounter - 1];//Add card to hand</span>
-<span class="lineNum">     564 </span><span class="lineCov">        834 :     state-&gt;deckCount[player]--;</span>
-<span class="lineNum">     565 </span><span class="lineCov">        834 :     state-&gt;handCount[player]++;//Increment hand count</span>
+<span class="lineNum">     563 </span><span class="lineCov">         14 :     state-&gt;hand[player][count] = state-&gt;deck[player][deckCounter - 1];//Add card to hand</span>
+<span class="lineNum">     564 </span><span class="lineCov">         14 :     state-&gt;deckCount[player]--;</span>
+<span class="lineNum">     565 </span><span class="lineCov">         14 :     state-&gt;handCount[player]++;//Increment hand count</span>
 <span class="lineNum">     566 </span>            :   }
 <span class="lineNum">     567 </span>            : 
 <span class="lineNum">     568 </span>            :   else{
-<span class="lineNum">     569 </span><span class="lineCov">     375436 :     int count = state-&gt;handCount[player];//Get current hand count for player</span>
+<span class="lineNum">     569 </span><span class="lineCov">       7986 :     int count = state-&gt;handCount[player];//Get current hand count for player</span>
 <span class="lineNum">     570 </span>            :     int deckCounter;
 <span class="lineNum">     571 </span>            :     if (DEBUG){//Debug statements
-<span class="lineNum">     572 </span>            :       printf(&quot;Current hand count: %d\n&quot;, count);
+<span class="lineNum">     572 </span><span class="lineCov">       7986 :       printf(&quot;Current hand count: %d\n&quot;, count);</span>
 <span class="lineNum">     573 </span>            :     }
 <span class="lineNum">     574 </span>            : 
-<span class="lineNum">     575 </span><span class="lineCov">     375436 :     deckCounter = state-&gt;deckCount[player];//Create holder for the deck count</span>
-<span class="lineNum">     576 </span><span class="lineCov">     375436 :     state-&gt;hand[player][count] = state-&gt;deck[player][deckCounter - 1];//Add card to the hand</span>
-<span class="lineNum">     577 </span><span class="lineCov">     375436 :     state-&gt;deckCount[player]--;</span>
-<span class="lineNum">     578 </span><span class="lineCov">     375436 :     state-&gt;handCount[player]++;//Increment hand count</span>
+<span class="lineNum">     575 </span><span class="lineCov">       7986 :     deckCounter = state-&gt;deckCount[player];//Create holder for the deck count</span>
+<span class="lineNum">     576 </span><span class="lineCov">       7986 :     state-&gt;hand[player][count] = state-&gt;deck[player][deckCounter - 1];//Add card to the hand</span>
+<span class="lineNum">     577 </span><span class="lineCov">       7986 :     state-&gt;deckCount[player]--;</span>
+<span class="lineNum">     578 </span><span class="lineCov">       7986 :     state-&gt;handCount[player]++;//Increment hand count</span>
 <span class="lineNum">     579 </span>            :   }
 <span class="lineNum">     580 </span>            : 
-<span class="lineNum">     581 </span><span class="lineCov">     376270 :   return 0;</span>
+<span class="lineNum">     581 </span><span class="lineCov">       8000 :   return 0;</span>
 <a name="582"><span class="lineNum">     582 </span>            : }</a>
 <span class="lineNum">     583 </span>            : 
 <span class="lineNum">     584 </span><span class="lineNoCov">          0 : int getCost(int cardNumber)</span>
@@ -891,7 +891,7 @@
 <span class="lineNum">     829 </span>            :         }
 <span class="lineNum">     830 </span>            : 
 <span class="lineNum">     831 </span>            :       if (DEBUG) 
-<span class="lineNum">     832 </span>            :         printf(&quot;Player %d reveals card number: %d\n&quot;, currentPlayer, state-&gt;hand[currentPlayer][choice1]);
+<span class="lineNum">     832 </span><span class="lineNoCov">          0 :         printf(&quot;Player %d reveals card number: %d\n&quot;, currentPlayer, state-&gt;hand[currentPlayer][choice1]);</span>
 <span class="lineNum">     833 </span>            : 
 <span class="lineNum">     834 </span>            :       //increase supply count for choosen card by amount being discarded
 <span class="lineNum">     835 </span><span class="lineNoCov">          0 :       state-&gt;supplyCount[state-&gt;hand[currentPlayer][choice1]] += choice2;</span>
@@ -942,7 +942,7 @@
 <span class="lineNum">     880 </span><span class="lineNoCov">          0 :                       for (k = 0; k &lt; state-&gt;handCount[i]; k++)</span>
 <span class="lineNum">     881 </span>            :                         {
 <span class="lineNum">     882 </span>            :                           if (DEBUG)
-<span class="lineNum">     883 </span>            :                             printf(&quot;Player %d reveals card number %d\n&quot;, i, state-&gt;hand[i][k]);
+<span class="lineNum">     883 </span><span class="lineNoCov">          0 :                             printf(&quot;Player %d reveals card number %d\n&quot;, i, state-&gt;hand[i][k]);</span>
 <span class="lineNum">     884 </span>            :                         }       
 <span class="lineNum">     885 </span><span class="lineNoCov">          0 :                       break;</span>
 <span class="lineNum">     886 </span>            :                     }           
@@ -1169,43 +1169,43 @@
 <span class="lineNum">    1107 </span>            : 
 <a name="1108"><span class="lineNum">    1108 </span>            : // refactored for assignment 2 - mb</a>
 <span class="lineNum">    1109 </span>            : //int playAdventurer(int currentPlayer, struct gameState *state, int cardDrawn, int drawntreasure, int temphand[], int z)
-<span class="lineNum">    1110 </span><span class="lineCov">       2000 : int playAdventurer(int currentPlayer, struct gameState *state)</span>
+<span class="lineNum">    1110 </span><span class="lineNoCov">          0 : int playAdventurer(int currentPlayer, struct gameState *state)</span>
 <span class="lineNum">    1111 </span>            : {
 <span class="lineNum">    1112 </span>            : 
-<span class="lineNum">    1113 </span><span class="lineCov">       2000 :   int drawntreasure = 0;</span>
+<span class="lineNum">    1113 </span><span class="lineNoCov">          0 :   int drawntreasure = 0;</span>
 <span class="lineNum">    1114 </span>            :   int cardDrawn;
 <span class="lineNum">    1115 </span>            :   int temphand[MAX_HAND];
-<span class="lineNum">    1116 </span><span class="lineCov">       2000 :   int z = 0; </span>
-<span class="lineNum">    1117 </span><span class="lineCov">       2000 :   int shuffled = 0;</span>
+<span class="lineNum">    1116 </span><span class="lineNoCov">          0 :   int z = 0; </span>
+<span class="lineNum">    1117 </span><span class="lineNoCov">          0 :   int shuffled = 0;</span>
 <span class="lineNum">    1118 </span>            : 
-<span class="lineNum">    1119 </span><span class="lineCov">     372271 :   while(drawntreasure&lt;2 )</span>
+<span class="lineNum">    1119 </span><span class="lineNoCov">          0 :   while(drawntreasure&lt;2 )</span>
 <span class="lineNum">    1120 </span>            :   // added the deckCount check to avoid endless loop when &lt; 2 treasure cards
 <span class="lineNum">    1121 </span>            :   {
-<span class="lineNum">    1122 </span><span class="lineCov">     369085 :     if(state-&gt;deckCount[currentPlayer &lt; 1] &amp;&amp; shuffled == 1) break;</span>
+<span class="lineNum">    1122 </span><span class="lineNoCov">          0 :     if(state-&gt;deckCount[currentPlayer &lt; 1] &amp;&amp; shuffled == 1) break;</span>
 <span class="lineNum">    1123 </span>            :     
-<span class="lineNum">    1124 </span><span class="lineCov">     368271 :     if (state-&gt;deckCount[currentPlayer] &lt;1) </span>
+<span class="lineNum">    1124 </span><span class="lineNoCov">          0 :     if (state-&gt;deckCount[currentPlayer] &lt;1) </span>
 <span class="lineNum">    1125 </span>            :     {//if the deck is empty we need to shuffle discard and add to deck
-<span class="lineNum">    1126 </span><span class="lineCov">        821 :       shuffle(currentPlayer, state);</span>
-<span class="lineNum">    1127 </span><span class="lineCov">        821 :       shuffled = 1;</span>
+<span class="lineNum">    1126 </span><span class="lineNoCov">          0 :       shuffle(currentPlayer, state);</span>
+<span class="lineNum">    1127 </span><span class="lineNoCov">          0 :       shuffled = 1;</span>
 <span class="lineNum">    1128 </span>            :     }
-<span class="lineNum">    1129 </span><span class="lineCov">     368271 :     drawCard(currentPlayer, state);</span>
-<span class="lineNum">    1130 </span><span class="lineCov">     368271 :     cardDrawn = state-&gt;hand[currentPlayer][state-&gt;handCount[currentPlayer]-1];//top card of hand is most recently drawn card.</span>
-<span class="lineNum">    1131 </span><span class="lineCov">     368271 :     if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)</span>
-<span class="lineNum">    1132 </span><span class="lineCov">       2787 :       drawntreasure++;</span>
+<span class="lineNum">    1129 </span><span class="lineNoCov">          0 :     drawCard(currentPlayer, state);</span>
+<span class="lineNum">    1130 </span><span class="lineNoCov">          0 :     cardDrawn = state-&gt;hand[currentPlayer][state-&gt;handCount[currentPlayer]-1];//top card of hand is most recently drawn card.</span>
+<span class="lineNum">    1131 </span><span class="lineNoCov">          0 :     if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)</span>
+<span class="lineNum">    1132 </span><span class="lineNoCov">          0 :       drawntreasure++;</span>
 <span class="lineNum">    1133 </span>            :     else
 <span class="lineNum">    1134 </span>            :     {
-<span class="lineNum">    1135 </span><span class="lineCov">     365484 :       temphand[z]==cardDrawn;   //BUG: = changed to == (statement now has no effect)</span>
-<span class="lineNum">    1136 </span><span class="lineCov">     365484 :       state-&gt;handCount[currentPlayer]--; //this should just remove the top card (the most recently drawn one).</span>
-<span class="lineNum">    1137 </span><span class="lineCov">     365484 :       z++;</span>
+<span class="lineNum">    1135 </span><span class="lineNoCov">          0 :       temphand[z]==cardDrawn;   //BUG: = changed to == (statement now has no effect)</span>
+<span class="lineNum">    1136 </span><span class="lineNoCov">          0 :       state-&gt;handCount[currentPlayer]--; //this should just remove the top card (the most recently drawn one).</span>
+<span class="lineNum">    1137 </span><span class="lineNoCov">          0 :       z++;</span>
 <span class="lineNum">    1138 </span>            :     }
 <span class="lineNum">    1139 </span>            :   }
-<span class="lineNum">    1140 </span><span class="lineCov">     369484 :   while(z-1 &gt;= 0)</span>
+<span class="lineNum">    1140 </span><span class="lineNoCov">          0 :   while(z-1 &gt;= 0)</span>
 <span class="lineNum">    1141 </span>            :   {
-<span class="lineNum">    1142 </span><span class="lineCov">     365484 :           state-&gt;discard[currentPlayer][state-&gt;discardCount[currentPlayer]++]=temphand[z-1]; // discard all cards in play that have been drawn</span>
-<span class="lineNum">    1143 </span><span class="lineCov">     365484 :           z=z-1;</span>
+<span class="lineNum">    1142 </span><span class="lineNoCov">          0 :           state-&gt;discard[currentPlayer][state-&gt;discardCount[currentPlayer]++]=temphand[z-1]; // discard all cards in play that have been drawn</span>
+<span class="lineNum">    1143 </span><span class="lineNoCov">          0 :           z=z-1;</span>
 <span class="lineNum">    1144 </span>            :   }
 <span class="lineNum">    1145 </span>            : 
-<span class="lineNum">    1146 </span><span class="lineCov">       2000 :   return 0;</span>
+<span class="lineNum">    1146 </span><span class="lineNoCov">          0 :   return 0;</span>
 <span class="lineNum">    1147 </span>            : }
 <a name="1148"><span class="lineNum">    1148 </span>            : </a>
 <span class="lineNum">    1149 </span>            : // refactored for assignment 2 - mb
@@ -1226,30 +1226,30 @@
 <span class="lineNum">    1164 </span><span class="lineNoCov">          0 :       while( x == 1) {//Buy one card</span>
 <span class="lineNum">    1165 </span><span class="lineNoCov">          0 :         if (supplyCount(choice1, state) &lt;= 0){</span>
 <span class="lineNum">    1166 </span>            :           if (DEBUG)
-<span class="lineNum">    1167 </span>            :             printf(&quot;None of that card left, sorry!\n&quot;);
+<span class="lineNum">    1167 </span><span class="lineNoCov">          0 :             printf(&quot;None of that card left, sorry!\n&quot;);</span>
 <span class="lineNum">    1168 </span>            : 
 <span class="lineNum">    1169 </span>            :           if (DEBUG){
-<span class="lineNum">    1170 </span>            :             printf(&quot;Cards Left: %d\n&quot;, supplyCount(choice1, state));
+<span class="lineNum">    1170 </span><span class="lineNoCov">          0 :             printf(&quot;Cards Left: %d\n&quot;, supplyCount(choice1, state));</span>
 <span class="lineNum">    1171 </span>            :           }
 <span class="lineNum">    1172 </span>            :         }
 <span class="lineNum">    1173 </span><span class="lineNoCov">          0 :         else if (state-&gt;coins &lt; getCost(choice1)){</span>
 <span class="lineNum">    1174 </span><span class="lineNoCov">          0 :           printf(&quot;That card is too expensive!\n&quot;);</span>
 <span class="lineNum">    1175 </span>            : 
 <span class="lineNum">    1176 </span>            :           if (DEBUG){
-<span class="lineNum">    1177 </span>            :             printf(&quot;Coins: %d &lt; %d\n&quot;, state-&gt;coins, getCost(choice1));
+<span class="lineNum">    1177 </span><span class="lineNoCov">          0 :             printf(&quot;Coins: %d &lt; %d\n&quot;, state-&gt;coins, getCost(choice1));</span>
 <span class="lineNum">    1178 </span>            :           }
 <span class="lineNum">    1179 </span>            :         }
 <span class="lineNum">    1180 </span>            :         else{
 <span class="lineNum">    1181 </span>            : 
 <span class="lineNum">    1182 </span>            :           if (DEBUG){
-<span class="lineNum">    1183 </span>            :             printf(&quot;Deck Count: %d\n&quot;, state-&gt;handCount[currentPlayer] + state-&gt;deckCount[currentPlayer] + state-&gt;discardCount[currentPlayer]);
+<span class="lineNum">    1183 </span><span class="lineNoCov">          0 :             printf(&quot;Deck Count: %d\n&quot;, state-&gt;handCount[currentPlayer] + state-&gt;deckCount[currentPlayer] + state-&gt;discardCount[currentPlayer]);</span>
 <span class="lineNum">    1184 </span>            :           }
 <span class="lineNum">    1185 </span>            : 
 <span class="lineNum">    1186 </span><span class="lineNoCov">          0 :           gainCard(choice1, state, 0, currentPlayer);//Gain the card</span>
 <span class="lineNum">    1187 </span><span class="lineNoCov">          0 :           x = 0;//No more buying cards</span>
 <span class="lineNum">    1188 </span>            : 
 <span class="lineNum">    1189 </span>            :           if (DEBUG){
-<span class="lineNum">    1190 </span>            :             printf(&quot;Deck Count: %d\n&quot;, state-&gt;handCount[currentPlayer] + state-&gt;deckCount[currentPlayer] + state-&gt;discardCount[currentPlayer]);
+<span class="lineNum">    1190 </span><span class="lineNoCov">          0 :             printf(&quot;Deck Count: %d\n&quot;, state-&gt;handCount[currentPlayer] + state-&gt;deckCount[currentPlayer] + state-&gt;discardCount[currentPlayer]);</span>
 <span class="lineNum">    1191 </span>            :           }
 <span class="lineNum">    1192 </span>            : 
 <span class="lineNum">    1193 </span>            :         }
@@ -1282,7 +1282,7 @@
 <span class="lineNum">    1220 </span>            :         else{
 <span class="lineNum">    1221 </span>            :           //No Card to Reveal
 <span class="lineNum">    1222 </span>            :           if (DEBUG){
-<span class="lineNum">    1223 </span>            :             printf(&quot;No cards to reveal\n&quot;);
+<span class="lineNum">    1223 </span><span class="lineNoCov">          0 :             printf(&quot;No cards to reveal\n&quot;);</span>
 <span class="lineNum">    1224 </span>            :           }
 <span class="lineNum">    1225 </span>            :         }
 <span class="lineNum">    1226 </span>            :       }
@@ -1334,55 +1334,66 @@
 <span class="lineNum">    1272 </span><span class="lineNoCov">          0 : int playBaron(struct gameState *state, int choice1, int currentPlayer)</span>
 <span class="lineNum">    1273 </span>            : {
 <span class="lineNum">    1274 </span><span class="lineNoCov">          0 :         state-&gt;numBuys++;//Increase buys by 1!</span>
-<span class="lineNum">    1275 </span><span class="lineNoCov">          0 :       if (choice1 &gt; 0){//Boolean true or going to discard an estate</span>
-<span class="lineNum">    1276 </span><span class="lineNoCov">          0 :         int p = 0;//Iterator for hand!</span>
-<span class="lineNum">    1277 </span><span class="lineNoCov">          0 :         int card_not_discarded = 1;//Flag for discard set!</span>
-<span class="lineNum">    1278 </span><span class="lineNoCov">          0 :         while(card_not_discarded){</span>
-<span class="lineNum">    1279 </span><span class="lineNoCov">          0 :           if (state-&gt;hand[currentPlayer][p] == estate){//Found an estate card!</span>
-<span class="lineNum">    1280 </span><span class="lineNoCov">          0 :             state-&gt;coins += 4;//Add 4 coins to the amount of coins</span>
-<span class="lineNum">    1281 </span><span class="lineNoCov">          0 :             state-&gt;discard[currentPlayer][state-&gt;discardCount[currentPlayer]] = state-&gt;hand[currentPlayer][p];</span>
-<span class="lineNum">    1282 </span><span class="lineNoCov">          0 :             state-&gt;discardCount[currentPlayer]++;</span>
-<span class="lineNum">    1283 </span><span class="lineNoCov">          0 :             for (;p &lt; state-&gt;handCount[currentPlayer]; p++){</span>
-<span class="lineNum">    1284 </span><span class="lineNoCov">          0 :               state-&gt;hand[currentPlayer][p] = state-&gt;hand[currentPlayer][p+1];</span>
-<span class="lineNum">    1285 </span>            :             }
-<span class="lineNum">    1286 </span><span class="lineNoCov">          0 :             state-&gt;hand[currentPlayer][state-&gt;handCount[currentPlayer]] = -1;</span>
-<span class="lineNum">    1287 </span><span class="lineNoCov">          0 :             state-&gt;handCount[currentPlayer]--;</span>
-<span class="lineNum">    1288 </span><span class="lineNoCov">          0 :             card_not_discarded = 0;//Exit the loop</span>
-<span class="lineNum">    1289 </span>            :           }
-<span class="lineNum">    1290 </span><span class="lineNoCov">          0 :           else if (p &gt; state-&gt;handCount[currentPlayer]){</span>
-<span class="lineNum">    1291 </span>            :             if(DEBUG) {
-<span class="lineNum">    1292 </span>            :               printf(&quot;No estate cards in your hand, invalid choice\n&quot;);
-<span class="lineNum">    1293 </span>            :               printf(&quot;Must gain an estate if there are any\n&quot;);
-<span class="lineNum">    1294 </span>            :             }
-<span class="lineNum">    1295 </span><span class="lineNoCov">          0 :             if (supplyCount(estate, state) &gt; 0){</span>
-<span class="lineNum">    1296 </span><span class="lineNoCov">          0 :               gainCard(estate, state, 0, currentPlayer);</span>
-<span class="lineNum">    1297 </span><span class="lineNoCov">          0 :               state-&gt;supplyCount[estate]--;//Decrement estates</span>
-<span class="lineNum">    1298 </span><span class="lineNoCov">          0 :               if (supplyCount(estate, state) == 0){</span>
-<span class="lineNum">    1299 </span><span class="lineNoCov">          0 :                 isGameOver(state);</span>
-<span class="lineNum">    1300 </span>            :               }
-<span class="lineNum">    1301 </span>            :             }
-<span class="lineNum">    1302 </span><span class="lineNoCov">          0 :             card_not_discarded = 0;//Exit the loop</span>
-<span class="lineNum">    1303 </span>            :           }
-<span class="lineNum">    1304 </span>            :                             
-<span class="lineNum">    1305 </span>            :           else{
-<span class="lineNum">    1306 </span><span class="lineNoCov">          0 :             p++;//Next card</span>
-<span class="lineNum">    1307 </span>            :           }
-<span class="lineNum">    1308 </span>            :         }
-<span class="lineNum">    1309 </span>            :       }
-<span class="lineNum">    1310 </span>            :                             
-<span class="lineNum">    1311 </span>            :       else{
-<span class="lineNum">    1312 </span><span class="lineNoCov">          0 :         if (supplyCount(estate, state) &gt; 0){</span>
-<span class="lineNum">    1313 </span><span class="lineNoCov">          0 :           gainCard(estate, state, 0, currentPlayer);//Gain an estate</span>
-<span class="lineNum">    1314 </span><span class="lineNoCov">          0 :           state-&gt;supplyCount[estate]--;//Decrement Estates</span>
-<span class="lineNum">    1315 </span><span class="lineNoCov">          0 :           if (supplyCount(estate, state) == 0){</span>
-<span class="lineNum">    1316 </span><span class="lineNoCov">          0 :             isGameOver(state);</span>
-<span class="lineNum">    1317 </span>            :           }
-<span class="lineNum">    1318 </span>            :         }
-<span class="lineNum">    1319 </span>            :       }
-<span class="lineNum">    1320 </span>            :             
-<span class="lineNum">    1321 </span>            :       
-<span class="lineNum">    1322 </span><span class="lineNoCov">          0 :       return 0;</span>
-<span class="lineNum">    1323 </span>            : }
+<span class="lineNum">    1275 </span><span class="lineNoCov">          0 :   if (choice1 &gt; 0)</span>
+<span class="lineNum">    1276 </span>            :   {//Boolean true or going to discard an estate
+<span class="lineNum">    1277 </span><span class="lineNoCov">          0 :           int p = 0;//Iterator for hand!</span>
+<span class="lineNum">    1278 </span><span class="lineNoCov">          0 :           int card_not_discarded = 1;//Flag for discard set!</span>
+<span class="lineNum">    1279 </span><span class="lineNoCov">          0 :           while(card_not_discarded)</span>
+<span class="lineNum">    1280 </span>            :     {
+<span class="lineNum">    1281 </span><span class="lineNoCov">          0 :            if (state-&gt;hand[currentPlayer][p] == estate)</span>
+<span class="lineNum">    1282 </span>            :      {//Found an estate card!
+<span class="lineNum">    1283 </span><span class="lineNoCov">          0 :         state-&gt;coins += 4;//Add 4 coins to the amount of coins</span>
+<span class="lineNum">    1284 </span><span class="lineNoCov">          0 :         state-&gt;discard[currentPlayer][state-&gt;discardCount[currentPlayer]] = state-&gt;hand[currentPlayer][p];</span>
+<span class="lineNum">    1285 </span><span class="lineNoCov">          0 :         state-&gt;discardCount[currentPlayer]++;</span>
+<span class="lineNum">    1286 </span><span class="lineNoCov">          0 :         for (;p &lt; state-&gt;handCount[currentPlayer]; p++)</span>
+<span class="lineNum">    1287 </span>            :         {
+<span class="lineNum">    1288 </span><span class="lineNoCov">          0 :           state-&gt;hand[currentPlayer][p] = state-&gt;hand[currentPlayer][p+1];</span>
+<span class="lineNum">    1289 </span>            :         }
+<span class="lineNum">    1290 </span><span class="lineNoCov">          0 :         state-&gt;hand[currentPlayer][state-&gt;handCount[currentPlayer]] = -1;</span>
+<span class="lineNum">    1291 </span><span class="lineNoCov">          0 :         state-&gt;handCount[currentPlayer]--;</span>
+<span class="lineNum">    1292 </span><span class="lineNoCov">          0 :         card_not_discarded = 0;//Exit the loop</span>
+<span class="lineNum">    1293 </span>            :             }
+<span class="lineNum">    1294 </span><span class="lineNoCov">          0 :             else if (p &gt; state-&gt;handCount[currentPlayer])</span>
+<span class="lineNum">    1295 </span>            :       {
+<span class="lineNum">    1296 </span>            :         if(DEBUG) 
+<span class="lineNum">    1297 </span>            :         {
+<span class="lineNum">    1298 </span><span class="lineNoCov">          0 :           printf(&quot;No estate cards in your hand, invalid choice\n&quot;);</span>
+<span class="lineNum">    1299 </span><span class="lineNoCov">          0 :           printf(&quot;Must gain an estate if there are any\n&quot;);</span>
+<span class="lineNum">    1300 </span>            :         }
+<span class="lineNum">    1301 </span><span class="lineNoCov">          0 :         if (supplyCount(estate, state) &gt; 0)</span>
+<span class="lineNum">    1302 </span>            :         {
+<span class="lineNum">    1303 </span><span class="lineNoCov">          0 :           gainCard(estate, state, 0, currentPlayer);</span>
+<span class="lineNum">    1304 </span><span class="lineNoCov">          0 :           state-&gt;supplyCount[estate]--;//Decrement estates</span>
+<span class="lineNum">    1305 </span><span class="lineNoCov">          0 :           if (supplyCount(estate, state) == 0)</span>
+<span class="lineNum">    1306 </span>            :           {
+<span class="lineNum">    1307 </span><span class="lineNoCov">          0 :             isGameOver(state);</span>
+<span class="lineNum">    1308 </span>            :           }
+<span class="lineNum">    1309 </span>            :         }
+<span class="lineNum">    1310 </span><span class="lineNoCov">          0 :               card_not_discarded = 0;//Exit the loop</span>
+<span class="lineNum">    1311 </span>            :             }
+<span class="lineNum">    1312 </span>            :                             
+<span class="lineNum">    1313 </span>            :       else
+<span class="lineNum">    1314 </span>            :       {
+<span class="lineNum">    1315 </span><span class="lineNoCov">          0 :         p++;//Next card</span>
+<span class="lineNum">    1316 </span>            :       }
+<span class="lineNum">    1317 </span>            :     }
+<span class="lineNum">    1318 </span>            :   }
+<span class="lineNum">    1319 </span>            :                             
+<span class="lineNum">    1320 </span>            :   else
+<span class="lineNum">    1321 </span>            :   {
+<span class="lineNum">    1322 </span><span class="lineNoCov">          0 :     if (supplyCount(estate, state) &gt; 0)</span>
+<span class="lineNum">    1323 </span>            :     {
+<span class="lineNum">    1324 </span><span class="lineNoCov">          0 :             gainCard(estate, state, 0, currentPlayer);//Gain an estate</span>
+<span class="lineNum">    1325 </span><span class="lineNoCov">          0 :             state-&gt;supplyCount[estate]--;//Decrement Estates</span>
+<span class="lineNum">    1326 </span><span class="lineNoCov">          0 :             if (supplyCount(estate, state) == 0)</span>
+<span class="lineNum">    1327 </span>            :       {
+<span class="lineNum">    1328 </span><span class="lineNoCov">          0 :               isGameOver(state);</span>
+<span class="lineNum">    1329 </span>            :             }
+<span class="lineNum">    1330 </span>            :           }
+<span class="lineNum">    1331 </span>            :   }
+<span class="lineNum">    1332 </span>            :               
+<span class="lineNum">    1333 </span><span class="lineNoCov">          0 :   return 0;</span>
+<span class="lineNum">    1334 </span>            : }
 </pre>
       </td>
     </tr>
