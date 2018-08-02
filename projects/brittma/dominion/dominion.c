@@ -1120,31 +1120,29 @@ int playAdventurer(int currentPlayer, struct gameState *state)
   // added the deckCount check to avoid endless loop when < 2 treasure cards
   {
     if(state->deckCount[currentPlayer < 1] && shuffled == 1) break;
-  // printf("z: %d -- drawntreasure: %d -- deckCount: %d\n", z, drawntreasure, state->deckCount[currentPlayer]);
+    
     if (state->deckCount[currentPlayer] <1) 
     {//if the deck is empty we need to shuffle discard and add to deck
       shuffle(currentPlayer, state);
       shuffled = 1;
     }
     drawCard(currentPlayer, state);
- //   printf("1122: currentPlayer: %d\n", currentPlayer);
     cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer]-1];//top card of hand is most recently drawn card.
     if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
       drawntreasure++;
     else
     {
-      temphand[z]=cardDrawn;   //BUG: = changed to == (statement now has no effect)
+      temphand[z]==cardDrawn;   //BUG: = changed to == (statement now has no effect)
       state->handCount[currentPlayer]--; //this should just remove the top card (the most recently drawn one).
       z++;
     }
   }
   while(z-1 >= 0)
   {
- //   printf("z: %d\n", z);
 	  state->discard[currentPlayer][state->discardCount[currentPlayer]++]=temphand[z-1]; // discard all cards in play that have been drawn
 	  z=z-1;
   }
-//printf("return 0\n");
+
   return 0;
 }
 
